@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { OrderItem } from 'components/OrderItem';
-import { AppContext } from '../context/AppContext';
+import { AppContext } from 'contexts/AppContext';
 import arrow from 'icons/flechita.svg'
 import 'styles/MyOrder.scss';
 
@@ -20,8 +20,8 @@ const MyOrder = () => {
         <p className="title">My order</p>
       </div>
       <div className="my-order-content">
-        {state.cart.map(product => {
-          return <OrderItem product={product} key={`orderItem-${product.id}`} />
+        {state.cart.map((product, indexValue) => {
+          return <OrderItem indexValue={indexValue} product={product} key={`orderItem-${product.id}`} />
         })}
         <div className="order">
           <p>

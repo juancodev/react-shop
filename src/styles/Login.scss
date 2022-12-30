@@ -77,6 +77,11 @@
   height: 50px;
 }
 
+.secondary-button a {
+  color: var(--hospital-green);
+  text-decoration: none;
+}
+
 .login-button {
   margin-top: 14px;
   margin-bottom: 30px;

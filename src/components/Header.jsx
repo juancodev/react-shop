@@ -6,7 +6,7 @@ import menu from 'icons/icon_menu.svg';
 import logo from 'logos/logo_yard_sale.svg';
 import shoppingCart from 'icons/icon_shopping_cart.svg';
 import downArrow from 'icons/flechita.svg';
-import { AppContext } from '../context/AppContext';
+import { AppContext } from 'contexts/AppContext';
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);

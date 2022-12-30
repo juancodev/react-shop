@@ -35,7 +35,9 @@ const Login = () => {
         </form>
 
         <button className="secondary-button">
-          Sign up
+          <a href="/signup">
+            Sign up
+          </a>
         </button>
       </div >
     </div >

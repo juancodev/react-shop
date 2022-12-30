@@ -12,7 +12,7 @@ const Menu = () => {
           <a href="/" className="">My account</a>
         </li>
         <li>
-          <a href="/" className="">Sign out</a>
+          <a href="/login" className="">Sign out</a>
         </li>
       </ul>
     </div>
