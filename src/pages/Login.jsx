@@ -1,24 +1,43 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useAuth } from "hooks/useAuth";
 import 'styles/Login.scss';
-import logo from 'logos/logo_yard_sale.svg'
+import logo from 'logos/logo_yard_sale.svg';
 
 const Login = () => {
+  const { setUserAuth } = useAuth();
   const form = useRef(null);
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const formData = new FormData(form.current);
-    const data = {
-      username: formData.get('email'),
-      password: formData.get('password')
+  const handleSubmit = async (event) => {
+    try {
+      event.preventDefault();
+      setLoading(true);
+      const formData = new FormData(form.current);
+      const data = {
+        email: formData.get('email'),
+        password: formData.get('password')
+      }
+      const logged = await axios.post('https://store-node-api.onrender.com/api/v1/auth/login', data)
+
+      if (logged.status === 200) {
+        const user = logged.data;
+        setUserAuth(user);
+        setLoading(false);
+        navigate('/');
+      }
+
+    } catch (err) {
+      console.log(err)
     }
-    console.log(data);
   }
   return (
     <div className="Login">
       <div className="Login-container border-test">
         <img src={logo} alt="logo" className="logo" />
-
+        {loading && <p>Loading...</p>}
         <form action="/" className="form" ref={form}>
           <label htmlFor="email" className="label">Email address</label>
           <input type="email" name="email" placeholder="juan@example.com" className="input input-email" />
