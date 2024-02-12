@@ -37,6 +37,7 @@ const Login = () => {
     <div className="Login">
       <div className="Login-container border-test">
         <img src={logo} alt="logo" className="logo" />
+        <h1 className="title">Login</h1>
         {loading && <p>Loading...</p>}
         <form action="/" className="form" ref={form}>
           <label htmlFor="email" className="label">Email address</label>

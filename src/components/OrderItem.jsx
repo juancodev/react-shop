@@ -13,10 +13,10 @@ const OrderItem = ({ product, indexValue }) => {
     <div className="OrderItem">
       <figure>
         <img
-          src={product.images[0]} className="product-img" alt={product.title} />
+          src={product?.image} className="product-img" alt={product?.name} />
       </figure>
-      <p>{product.title}</p>
-      <p>{product.price}</p>
+      <p>{product?.name}</p>
+      <p>${product?.price}</p>
       <img src={closeIcon} alt="close" onClick={() => handleRemove(indexValue)} />
     </div>
   );

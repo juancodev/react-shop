@@ -11,16 +11,6 @@ const AuthProvider = ({ children }) => {
     console.log('logout');
   };
 
-  // useEffect(() => {
-  //   const getUser = async () => {
-  //     //const user = await axios(`https://store-node-api.onrender.com/api/v1/users`);
-  //     //setUserAuth(user.data);
-  //   }
-  //   getUser();
-  //   // const user = useAPI.getUsers(`https://store-node-api.onrender.com/api`);
-  // }, [])
-
-
   const authObject = { userAuth, setUserAuth, logout };
 
   return (

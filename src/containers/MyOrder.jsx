@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { OrderItem } from 'components/OrderItem';
 import { AppContext } from 'contexts/AppContext';
 import arrow from 'icons/flechita.svg'
@@ -6,11 +7,16 @@ import 'styles/MyOrder.scss';
 
 const MyOrder = () => {
   const { state } = useContext(AppContext);
+  const navigate = useNavigate();
 
   const sumTotal = () => {
     const reducer = (accumulator, currentValue) => accumulator + currentValue.price;
     const sum = state.cart.reduce(reducer, 0);
     return sum;
+  }
+
+  const handleCheckout = () => {
+    navigate('/checkout');
   }
 
   return (
@@ -29,7 +35,7 @@ const MyOrder = () => {
           </p>
           <p>{sumTotal()}$</p>
         </div>
-        <button className="primary-button">
+        <button className="primary-button" onClick={handleCheckout}>
           Checkout
         </button>
       </div>

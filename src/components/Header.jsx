@@ -17,8 +17,6 @@ const Header = () => {
   const { userAuth } = useAuth();
   const navigate = useNavigate();
 
-  console.log(userAuth.user?.email);
-
   const handleToggle = () => {
     setToggle(!toggle);
   }

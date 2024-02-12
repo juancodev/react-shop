@@ -11,7 +11,7 @@ const ProductItem = ({ product }) => {
   }
   return (
     <div className="ProductItem">
-      <img src={product.images[0]} alt={product.title} />
+      <img src={product.image} alt={product.title} />
       <div className="dots">
         <span className="dot"></span>
         <span className="dot"></span>
@@ -19,7 +19,7 @@ const ProductItem = ({ product }) => {
       </div>
       <div className="product-info">
         <p>{product.price}$</p>
-        <p>{product.title}</p>
+        <p>{product.name}</p>
         <figure onClick={() => handleClick(product)}>
           <img src={buttonAddToCart} alt="cart" />
         </figure>
