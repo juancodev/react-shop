@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/react-shop',
+    publicPath: '/react-shop/',
   },
   mode: 'production',
   resolve: {
@@ -57,7 +57,7 @@ module.exports = {
         test: /\.(png|jpg|svg|jpeg)$/,
         type: 'asset/resource',
         generator: {
-          filename: '/assets/pictures/[hash]-[name].[ext]',
+          filename: 'assets/pictures/[hash]-[name].[ext]',
         }
       },
     ]
