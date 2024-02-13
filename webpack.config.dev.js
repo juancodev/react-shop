@@ -1,11 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugins = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const {
-  CleanWebpackPlugin
-} = require('clean-webpack-plugin')
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
@@ -15,7 +10,7 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/',
   },
-  mode: 'production',
+  mode: 'development',
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
@@ -73,14 +68,14 @@ module.exports = {
     new Dotenv({
       path: './.env',
       prefix: 'import.meta.env'
-    }),
-    new CleanWebpackPlugin(),
+    })
   ],
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(),
-      new TerserPlugin()
-    ]
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist')
+    },
+    compress: true,
+    port: 3005,
+    historyApiFallback: true,
   }
 }
