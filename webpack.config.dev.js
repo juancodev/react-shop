@@ -2,6 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugins = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const {
+  HotModuleReplacementPlugin
+} = require('webpack');
 
 module.exports = {
   entry: './src/index.js',
@@ -68,7 +72,9 @@ module.exports = {
     new Dotenv({
       path: './.env',
       prefix: 'import.meta.env'
-    })
+    }),
+    new HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin()
   ],
   devServer: {
     static: {
@@ -76,6 +82,7 @@ module.exports = {
     },
     compress: true,
     port: 3005,
+    hot: true,
     historyApiFallback: true,
   }
 }
