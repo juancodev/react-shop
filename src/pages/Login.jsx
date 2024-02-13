@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from "hooks/useAuth";
 import 'styles/Login.scss';
@@ -51,13 +51,13 @@ const Login = () => {
             onClick={handleSubmit} >
             Log in
           </button>
-          <a href="/">Forgot my password</a>
+          <Link to="/recovery-password">Forgot my password</Link>
         </form>
 
         <button className="secondary-button">
-          <a href="/signup">
+          <Link to="/signup">
             Sign up
-          </a>
+          </Link>
         </button>
       </div >
     </div >

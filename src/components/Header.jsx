@@ -17,6 +17,10 @@ const Header = () => {
   const { userAuth } = useAuth();
   const navigate = useNavigate();
 
+  const handleHome = () => {
+    navigate('/', { replace: true });
+  }
+
   const handleToggle = () => {
     setToggle(!toggle);
   }
@@ -30,7 +34,7 @@ const Header = () => {
         <img src={menu} alt="menu" className="menu" />
 
         <div className="navbar-left">
-          <img src={logo} alt="logo" className="nav-logo" />
+          <img src={logo} alt="logo" className="nav-logo" onClick={handleHome} />
 
           <ul>
             <li>
@@ -79,10 +83,10 @@ const Header = () => {
   } else {
     return (
       <nav>
-        <img src={menu} alt="menu" className="menu" />
+        <img src={menu} alt="menu" className="menu" onClick={() => console.log('click')} />
 
         <div className="navbar-left">
-          <img src={logo} alt="logo" className="nav-logo" />
+          <img src={logo} alt="logo" className="nav-logo" onClick={handleHome} />
 
           <ul>
             <li>
